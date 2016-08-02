@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jQuery.min.js' %}"></script>
+    <script src={% static 'js/npm.js' %}></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <style>
+        body{
+            background-image: url("http://www.yourstylishlife.com/wp-content/uploads/2014/07/web-background-images-9.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 1;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        .centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="login_bar" style="text-align: right">
+        <a href="/attendance/logout/" ><button class = "btn btn-primary">Logout</button></a>
+    </div>
+<div class="centered container">
+    <h2>Welcome {{ user.name }}!!</h2>
+    <p><a href="/attendance/schedule/"><button class="btn btn-primary">ViewSchedule</button></a> to view your classes and update attendance</p>
+    <p><a href="/attendance/addperiods/"><button class="btn btn-primary">UpdateSchedule</button></a> to update your schedule</p>
+    </div>
+</body>
+</html>

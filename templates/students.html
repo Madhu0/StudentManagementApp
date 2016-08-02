@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of students</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jQuery.min.js' %}"></script>
+    <script src={% static 'js/npm.js' %}></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <style>
+        body{
+            background-image: url("http://www.yourstylishlife.com/wp-content/uploads/2014/07/web-background-images-9.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 1;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        .centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .checkbox-grid li {
+            display: block;
+            float: left;
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div id="login_bar" style="text-align: right">
+        <a href="/attendance/logout/" ><button class = "btn btn-primary">Logout</button></a>
+    </div>
+    <div class = "container centered">
+    <div class = "form-group">
+        <form method="post" action="">
+        {% csrf_token %}
+        <ul class = "checkbox-grid list">
+            {% for i in students %}
+                <li><label><input type="checkbox" name="students" value="{{ i.roll_no }}">{{ i.roll_no }}</label><br></li>
+            {% endfor %}
+            </ul>
+            <input type="submit" class="btn btn-info" name="submit">
+        </form>
+    </div>
+    </div>
+</body>
+</html>
