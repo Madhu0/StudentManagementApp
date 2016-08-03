@@ -98,7 +98,7 @@ def addperiods(request):
     else:
         form = PeriodFormSet(queryset=faculty.period_set.all())
         template=loader.get_template("addperiods.html")
-        result=template.render(context = {"form":form},request=request)
+        result=template.render(context = {"form":form}, request=request)
         return HttpResponse(result)
 
 
@@ -119,6 +119,5 @@ def class_view(request,cid,sid):
         cls = Class.objects.get(id=cid)
         studs = cls.student_set.all()
         template = loader.get_template("students.html")
-        c = RequestContext(request,{'students':studs})
-        result = template.render(c)
+        result = template.render(context={"students":studs},request = request)
         return HttpResponse(result)

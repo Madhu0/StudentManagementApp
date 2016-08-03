@@ -28,14 +28,14 @@
     </style>
 </head>
 <body>
-<div class = "centered container">
-    <div class = "form-group">
+<div class = "container">
+    <div class = "centered form-group">
     <form role="form" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input class = "btn btn-primary" type="submit" name="submit">
-    </form>
         <a href="/attendance/home/"><button class="btn btn-info">Back To Home</button></a>
+    </form>
     </div>
     </div>
 </body>

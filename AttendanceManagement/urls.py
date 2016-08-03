@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import RedirectView
 
 urlpatterns = [
+    url(r'^$','StudentManagement.views.home'),
     url(r'^admin/', admin.site.urls),
     url(r'^attendance/',include('StudentManagement.url'))
 ]

@@ -9,37 +9,134 @@
     <script src={% static 'js/npm.js' %}></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <style>
-        body{
-            background-image: url("http://www.yourstylishlife.com/wp-content/uploads/2014/07/web-background-images-9.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            opacity: 1;
+        .logo {
+            font-size: 200px;
         }
-        html,body{
-            height: 100%;
-            width: 100%;
+        @media screen and (max-width: 768px) {
+            .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+            }
         }
-        .centered {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .jumbotron {
+            background-color: #f4511e;
+            color: #ffffff;
+        }
+        .jumbotron {
+            background-color: #f4511e;
+            color: #fff;
+            padding: 100px 25px;
+        }
+
+        .container-fluid {
+            padding: 60px 50px;
+        }
+        .bg-grey {
+            background-color: #f6f6f6;
+        }
+        .navbar {
+            margin-bottom: 0;
+            background-color: #f4511e;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+        }
+
+        .navbar li a, .navbar .navbar-brand {
+            color: #fff !important;
+        }
+
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #f4511e !important;
+            background-color: #fff !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-    <div id="login_bar" style="text-align: right">
-            <a href="/attendance/login/" ><button class = "btn btn-primary">Login </button></a>
-            <a href="/attendance/signup/" ><button class = "btn btn-primary">SignUp </button></a>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">AMS</a>
     </div>
-    <form method="post">
-        {% csrf_token %}
-        <div class = "form-group centered">
-            <label>Enter Roll Number:<input type="text" name="roll" class = "form-control"></label>
-            <input type="submit" class = "btn btn-primary form-actions">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#login">LOGIN</a></li>
+        <li><a href="#signup">SIGNUP</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        <div class ="jumbotron text-center">
+            <h1>Attendance Management System</h1>
+            <p>Update attendance with a click!!</p>
+            <form method="post" class="form-inline">
+            {% csrf_token %}
+            <input type="text" name="roll" class = "form-control" size="50" placeholder="Enter Roll Number">
+            <button type="submit" class = "btn btn-warning form-actions">View Attendance</button>
+            </form>
         </div>
-    </form>
+    <div id="about" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+        <h2>What You Can Do!?</h2>
+        <h4>Updating attendance is just a click away</h4>
+        <p>Here you can update your class attendance without carrying any pen, paper etc.All you want to do is login view your schedule and update attendance</p>
         </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-tasks logo"></span>
+    </div>
+    </div>
+    </div>
+        <div id="login" class="container-fluid bg-grey">
+        <div class="row">
+            <div class="col-sm-4">
+              <span class="glyphicon glyphicon-signal logo"></span>
+            </div>
+            <div class="col-sm-8">
+            <h4>Login Now</h4>
+        <p>Are you ready to see what i can do.Just click the button below.</p>
+        <a href="/attendance/login/" ><button class = "btn btn-default btn-lg">Login </button></a>
+        </div>
+        </div>
+        </div>
+        <div id="signup" class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8">
+            <h4>SignUp Now</h4>
+        <p>If you are new here, no worries get your faculty id and gearup</p>
+        <a href="/attendance/signup/" ><button class = "btn btn-default btn-lg">SignUp </button></a>
+    </div>
+            <div class="col-sm-4">
+              <span class="glyphicon glyphicon-new-window logo"></span>
+            </div>
+     </div>
+     </div>
+    <div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact me if you find anything wrong or inappropriate.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Hyderabad, Telangana, India</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +91 8500456636</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> kmadhusudhanreddy3@gmail.com</p>
+    </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
